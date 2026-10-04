@@ -2,6 +2,11 @@
 
 A full-stack web application to manage product inventory with secure login, live stock tracking, low-stock alerts and a category chart. Built as a Backend Development mini project (Teacher Assessment).
 
+<!-- After deploying on Render, delete this line and the two around it, and add:
+## 🌐 Live Demo
+**https://your-app.onrender.com**
+-->
+
 ## 📖 Description
 
 StockPulse lets authenticated users add, search, update and delete products, adjust stock with +/- buttons, and monitor inventory health from a dashboard. The frontend talks to a Flask REST API using Fetch and JSON, so everything updates without page reloads. Data is stored in an SQLite database.
@@ -66,27 +71,38 @@ StockPulse lets authenticated users add, search, update and delete products, adj
 
 **Prerequisites:** Python 3.9+ and Git installed.
 
-1. **Clone the repository**
+**1. Clone the repository**
+
 ```
-   git clone https://github.com/JidnyasaMude/inventory-app.git
-   cd inventory-app
+git clone https://github.com/JidnyasaMude/inventory-app.git
+cd inventory-app
 ```
-2. **Create and activate a virtual environment**
+
+**2. Create and activate a virtual environment**
+
 ```
-   python -m venv venv
-   venv\Scripts\activate
+python -m venv venv
+venv\Scripts\activate
 ```
-   (Mac/Linux: `source venv/bin/activate`)
-3. **Install dependencies**
+
+*(Mac/Linux: `source venv/bin/activate`)*
+
+**3. Install dependencies**
+
 ```
-   pip install -r requirements.txt
+pip install -r requirements.txt
 ```
-4. **Run the app**
+
+**4. Run the app**
+
 ```
-   python app.py
+python app.py
 ```
-5. **Open in browser:** http://127.0.0.1:5000
-6. Click **Register**, create an account, and start managing inventory. The database is created automatically with sample products.
+
+**5. Open in browser:** `http://127.0.0.1:5000`
+*(This works only on your own computer while `python app.py` is running.)*
+
+**6. Register and use the app:** click **Register**, create an account, and start managing inventory. The database is created automatically with sample products.
 
 ## 📁 Project Structure
 
@@ -94,6 +110,8 @@ StockPulse lets authenticated users add, search, update and delete products, adj
 inventory-app/
 ├── app.py              # Flask backend (API, auth, database)
 ├── requirements.txt    # Python dependencies
+├── README.md           # Project documentation
+├── Screenshots/        # Application screenshots
 ├── templates/
 │   └── index.html      # Main page
 └── static/
