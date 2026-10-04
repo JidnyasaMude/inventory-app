@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StockPulse | Inventory Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <!-- LOGIN / REGISTER -->
+  <section id="auth-view" class="auth">
+    <div class="auth-card glass">
+      <div class="brand big">📦 Stock<span>Pulse</span></div>
+      <p class="tagline">Smart inventory tracking with live low-stock alerts</p>
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Login</button>
+        <button class="tab" data-tab="register">Register</button>
+      </div>
+
+      <form id="login-form" novalidate>
+        <label>Username</label>
+        <input id="login-user" type="text" placeholder="Enter username" autocomplete="username">
+        <label>Password</label>
+        <input id="login-pass" type="password" placeholder="Enter password" autocomplete="current-password">
+        <button class="btn btn-primary full" type="submit">Login →</button>
+      </form>
+
+      <form id="register-form" class="hidden" novalidate>
+        <label>Username</label>
+        <input id="reg-user" type="text" placeholder="3-20 letters, digits, _" autocomplete="username">
+        <label>Password</label>
+        <input id="reg-pass" type="password" placeholder="6+ chars, letter and digit" autocomplete="new-password">
+        <button class="btn btn-primary full" type="submit">Create Account →</button>
+      </form>
+      <p id="auth-error" class="form-error"></p>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <div id="app-view" class="hidden">
+    <header class="nav glass">
+      <div class="brand">📦 Stock<span>Pulse</span></div>
+      <div class="nav-right">
+        <span id="user-chip" class="chip"></span>
+        <button id="logout-btn" class="btn btn-ghost">Logout</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="stats">
+        <div class="stat glass s1"><div class="ico">🛍️</div><div><p>Total Products</p><h2 id="stat-total">0</h2></div></div>
+        <div class="stat glass s2"><div class="ico">📦</div><div><p>Total Units</p><h2 id="stat-units">0</h2></div></div>
+        <div class="stat glass s3"><div class="ico">💰</div><div><p>Inventory Value</p><h2 id="stat-value">₹0</h2></div></div>
+        <div class="stat glass s4"><div class="ico">⚠️</div><div><p>Low / Out of Stock</p><h2 id="stat-low">0</h2></div></div>
+      </section>
+
+      <section class="grid2">
+        <div class="panel glass">
+          <h3>⚠️ Low-Stock Alerts</h3>
+          <div id="alerts"></div>
+        </div>
+        <div class="panel glass">
+          <h3>📊 Stock by Category</h3>
+          <div class="donut-wrap">
+            <div id="donut" class="donut"><span>Units</span></div>
+            <ul id="legend" class="legend"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel glass">
+        <div class="toolbar">
+          <input id="search" type="text" placeholder="🔍 Search by name, ID or category...">
+          <select id="cat-filter"><option value="">All categories</option></select>
+          <button id="add-btn" class="btn btn-primary">＋ Add Product</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>ID</th><th>Product</th><th>Category</th><th>Stock</th>
+                  <th>Price</th><th>Value</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+        <div id="empty" class="empty hidden">😕 No products found</div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ADD / EDIT MODAL -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-card glass">
+      <h3 id="modal-title">Add Product</h3>
+      <form id="product-form" novalidate>
+        <div class="row">
+          <div><label>Product ID</label><input id="f-pid" type="text" placeholder="e.g. LAP-101" maxlength="20"></div>
+          <div><label>Category</label><input id="f-cat" type="text" placeholder="e.g. Electronics" maxlength="30"></div>
+        </div>
+        <label>Product Name</label>
+        <input id="f-name" type="text" placeholder="e.g. Dell Inspiron Laptop" maxlength="60">
+        <div class="row">
+          <div><label>Quantity</label><input id="f-qty" type="number" min="0" step="1" placeholder="0"></div>
+          <div><label>Price (₹)</label><input id="f-price" type="number" min="0" step="0.01" placeholder="0.00"></div>
+        </div>
+        <p id="form-error" class="form-error"></p>
+        <div class="modal-actions">
+          <button type="button" id="cancel-btn" class="btn btn-ghost">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toasts"></div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
