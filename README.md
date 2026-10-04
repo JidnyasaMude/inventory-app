@@ -18,6 +18,29 @@ StockPulse lets authenticated users add, search, update and delete products, adj
 - Input validation on both client and server
 - Responsive, modern UI
 
+## 📸 Screenshots
+
+### 1. Login Page: User Authentication
+![Login](Screenshots/1-login.png)
+
+### 2. Dashboard: Inventory Overview
+![Dashboard](Screenshots/2-dashboard.png)
+
+### 3. Product List: Inventory Management
+![Product List](Screenshots/3-product-list.png)
+
+### 4. Add Product: Product Entry Form
+![Add Product](Screenshots/4-add-product.png)
+
+### 5. Product List: Updated Inventory
+![Updated List](Screenshots/5-updated-list.png)
+
+### 6. Dashboard: Updated Inventory Overview
+![Updated Dashboard](Screenshots/6-updated-dashboard.png)
+
+### 7. Search & Filter: Product Management
+![Search and Filter](Screenshots/7-search-filter.png)
+
 ## 🛠️ Technologies Used
 
 | Layer | Technology |
